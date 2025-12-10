@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Job Application Tracker</h1>
+        
+        <!-- Statistics Dashboard -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card primary">
+                    <h3 id="totalApps">0</h3>
+                    <p>Total Applications</p>
+                </div>
+                <div class="stat-card warning">
+                    <h3 id="interviewingCount">0</h3>
+                    <p>Interviewing</p>
+                </div>
+                <div class="stat-card success">
+                    <h3 id="acceptedCount">0</h3>
+                    <p>Accepted</p>
+                </div>
+                <div class="stat-card danger">
+                    <h3 id="rejectedCount">0</h3>
+                    <p>Rejected</p>
+                </div>
+                <div class="stat-card info">
+                    <h3 id="responseRate">0%</h3>
+                    <p>Response Rate</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="successRate">0%</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+
+            <div class="advanced-stats">
+                <div class="advanced-stat-card">
+                    <h4>Application Breakdown</h4>
+                    <ul class="stat-list">
+                        <li><span>This Week:</span> <strong id="thisWeekCount">0</strong></li>
+                        <li><span>This Month:</span> <strong id="thisMonthCount">0</strong></li>
+                        <li><span>Average per Week:</span> <strong id="avgPerWeek">0</strong></li>
+                        <li><span>Days Since Last:</span> <strong id="daysSinceLast">-</strong></li>
+                    </ul>
+                </div>
+
+                <div class="advanced-stat-card">
+                    <h4>Salary Insights</h4>
+                    <ul class="stat-list">
+                        <li><span>Avg Expected:</span> <strong id="avgExpected">-</strong></li>
+                        <li><span>Avg Offered:</span> <strong id="avgOffered">-</strong></li>
+                        <li><span>Highest Offer:</span> <strong id="highestOffer">-</strong></li>
+                        <li><span>Total Potential:</span> <strong id="totalPotential">-</strong></li>
+                    </ul>
+                </div>
+                <div class="advanced-stat-card">
+                    <h4>Performance Metrics</h4>
+                    <ul class="stat-list">
+                        <li><span>Interview Rate:</span> <strong id="interviewRate">0%</strong></li>
+                        <li><span>Rejection Rate:</span> <strong id="rejectionRate">0%</strong></li>
+                        <li><span>Pending Responses:</span> <strong id="pendingCount">0</strong></li>
+                        <li><span>Best Day:</span> <strong id="bestDay">-</strong></li>
+                    </ul>
+                </div>
+
+                <div class="advanced-stat-card">
+                    <h4>Location Analysis</h4>
+                    <ul class="stat-list" id="locationStats">
+                        <li><span>No data yet</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add New Application Form -->
+        <div class="form-section">
+            <h2>Add New Application</h2>
+            <form id="applicationForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title</label>
+                        <input type="text" id="jobTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location">
+                    </div>
+                    <div class="form-group">
+                        <label for="salaryRange">Salary Range</label>
+                        <input type="text" id="salaryRange" placeholder="e.g., $80,000–$100,000">
+                    </div>
+                    <div class="form-group">
+                        <label for="applicationLink">Application Link</label>
+                        <input type="url" id="applicationLink">
+                    </div>
+                    <div class="form-group">
+                        <label for="dateApplied">Date Applied</label>
+                        <input type="date" id="dateApplied">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" rows="3" placeholder="Additional notes about this application..."></textarea>
+                </div>
+                <button type="submit">Add Application</button>
+            </form>
+        </div>
+
+        <!-- Applications List -->
+        <div class="applications-list">
+            <div class="list-header">
+                <h2>Your Applications</h2>
+                <div class="list-controls">
+                    <input type="text" id="searchApp" placeholder="Search..." class="search-box">
+                    <select id="filterStatus">
+                        <option value="">All Statuses</option>
+                        <option value="Applied">Applied</option>
+                        <option value="Interviewing">Interviewing</option>
+                        <option value="Offer">Offer</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Accepted">Accepted</option>
+                    </select>
+                </div>
+                <button id="deleteSelected" class="btn-danger">Delete Selected</button>
+            </div>
+            <div id="applicationsList"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
